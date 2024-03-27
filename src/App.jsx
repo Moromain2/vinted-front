@@ -1,9 +1,17 @@
 // Modules imports
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useState, useEffect } from 'react'; // State management
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // Navigation
+import axios from 'axios'; // Data fetching
 
 // Global CSS import
 import './App.css'
+
+// Pages components imports
+import HomePage from './pages/Home';
+import OfferPage from './pages/Offer';
+
+// Components imports
+import Navigation from "./components/Navigation";
 
 function App() {
 
@@ -29,7 +37,17 @@ function App() {
 
   return (
     <>
-      <h1>Vinted</h1>
+      {isLoading ? <p>Loading data...</p> : // If the data has not yet been fetched
+        // If the data is fetched
+        <Router>
+          <Navigation />
+          <Routes>
+            <Route path='/' element={<HomePage />} />
+            <Route path='/offer/:id' element={<OfferPage />} />
+          </Routes>
+        </Router>
+      }
+
     </>
   )
 }
