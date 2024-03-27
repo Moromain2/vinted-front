@@ -33,8 +33,6 @@ function App() {
     fetchData();
   }, []);
 
-  console.log(data);
-
   return (
     <>
       {isLoading ? <p>Loading data...</p> : // If the data has not yet been fetched

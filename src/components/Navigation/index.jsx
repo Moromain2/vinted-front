@@ -12,7 +12,7 @@ import ArrowDown from "../../assets/images/vectors/ArrowDown";
 import ManifyingGlass from "../../assets/images/vectors/ManifyingGlass";
 
 const Navigation = () => {
-    // Setting a state to hide or show menus on mobile
+    // Setting a state to hide or show items on mobile
     const [showMenu, setShowMenu] = useState(false);
     const [showDropdown, setShowDropdown] = useState(false);
 
