@@ -1,0 +1,7 @@
+/* Reset import from meyerweb */
+@import url(https://meyerweb.com/eric/tools/css/reset/reset.css);
+
+/* Additional resets */
+* {
+  box-sizing: border-box;
+}

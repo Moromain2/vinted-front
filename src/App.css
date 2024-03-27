@@ -1,0 +1,10 @@
+/* === Variables import === */
+@import "./assets/styles/variables.css";
+
+/* === Global === */
+body {
+  background-color: var(--white);
+  color: var(--black);
+  font-family: var(--font-main);
+  font-size: 16px;
+}
