@@ -13,4 +13,7 @@
     --medium-grey: #757575;
     --light-grey: #F2F2F2;
     --green: #017782;
+
+    /* Animation */
+    --transition: all ease-out 300ms;
 }

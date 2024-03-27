@@ -1,0 +1,50 @@
+/* CSS for offer page template */
+.offer-page-wrapper {
+    background-color: var(--light-grey);
+}
+
+.offer-page-wrapper .container {
+    display: flex;
+    gap: .5em;
+    padding-top: 2em;
+    padding-bottom: 6em;
+}
+
+.offer-page-wrapper .container .product-info,
+.offer-page-wrapper .container .offer-hero-image {
+    width: 100%;
+    flex: 1;
+}
+
+.offer-page-wrapper .container .offer-hero-image {
+    height: 400px;
+}
+
+.offer-page-wrapper .container .product-info {
+    background-color: var(--white);
+    padding: .5em;
+    height: 100%;
+}
+
+/* === Media queries === */
+
+/* Tablet */
+@media (min-width: 620px) {
+    .offer-page-wrapper .container {
+        gap: 1em;
+    }
+
+    .offer-page-wrapper .container .offer-hero-image {
+        height: 600px;
+    }
+}
+
+/* Desktop */
+@media (min-width: 840px) {
+    .offer-page-wrapper {
+        display: flex;
+    }
+}
+
+/* Large screens */
+@media (min-width: 1080px) {}

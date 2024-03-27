@@ -8,3 +8,109 @@ body {
   font-family: var(--font-main);
   font-size: 16px;
 }
+
+/* === Structure === */
+.container {
+  max-width: 620px;
+  padding: 0 1.25em;
+  margin: 0 auto;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1em;
+}
+
+.grid>a {
+  width: calc(50% - 0.5em);
+}
+
+/* === Typography === */
+h1,
+h2,
+h3 {
+  font-weight: bold;
+  margin-bottom: 1em;
+  line-height: 1.25em;
+}
+
+h1 {
+  font-size: 1.5em;
+}
+
+h2 {
+  font-size: 1.25em;
+}
+
+h3 {
+  font-size: 1.125em;
+}
+
+/* === UI === */
+.button {
+  display: block;
+  border: 1px solid var(--green);
+  text-align: center;
+  padding: 1em;
+  border-radius: .25em;
+  text-decoration: none;
+  font-size: 1em;
+  width: 100%;
+  text-wrap: nowrap;
+}
+
+.button.button-fill {
+  background-color: var(--green);
+  color: var(--white);
+}
+
+.button.button-inline {
+  background-color: var(--white);
+  color: var(--green);
+}
+
+
+/* === Media queries === */
+
+/* Tablet */
+@media (min-width: 620px) {
+  h1 {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  h3 {
+    font-size: 1.25em;
+  }
+
+  .container {
+    max-width: 840px;
+  }
+
+  .grid>a {
+    width: calc(33.33% - 0.83em);
+  }
+}
+
+/* Desktop */
+@media (min-width: 840px) {
+  .container {
+    max-width: 1080px;
+  }
+
+  .grid>a {
+    width: calc(25% - 1em);
+  }
+}
+
+/* Large screens */
+@media (min-width: 1080px) {
+  .container {
+    max-width: 1280px;
+  }
+}

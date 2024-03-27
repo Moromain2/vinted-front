@@ -1,0 +1,43 @@
+.offer-card .user-info {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.offer-card .user-info span {
+    font-size: .75em;
+}
+
+.offer-card .user-info img {
+    height: 1.5em;
+    width: 1.5em;
+    border-radius: 1.5em;
+}
+
+.offer-card .product-image img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+
+.offer-card .user-info,
+.offer-card .product-info {
+    padding: .5em;
+    color: var(--medium-grey);
+}
+
+.offer-card .product-info .price {
+    color: var(--black);
+    font-weight: 500;
+    margin-bottom: 1em;
+    display: block;
+}
+
+.offer-card .product-info .details-list .detail {
+    margin-bottom: .5em;
+    font-size: .75em;
+}
+
+.offer-card .product-info .details-list .detail:last-of-type {
+    margin-bottom: 0;
+}

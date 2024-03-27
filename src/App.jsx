@@ -42,8 +42,8 @@ function App() {
         <Router>
           <Navigation />
           <Routes>
-            <Route path='/' element={<HomePage />} />
-            <Route path='/offer/:id' element={<OfferPage />} />
+            <Route path='/' element={<HomePage data={data} />} />
+            <Route path='/offer/:id' element={<OfferPage data={data} />} />
           </Routes>
         </Router>
       }
