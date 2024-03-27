@@ -9,7 +9,7 @@ const HomePage = ({ data }) => {
         <div className="home-page-wrapper">
             <section id="hero">
                 <div className="container">
-                    <div className="hero-cta">
+                    <div className="card hero-cta">
                         <h1>Prêts à faire du tri dans vos placards ?</h1>
                         <button className="button button-fill">Commencer à vendre</button>
                     </div>

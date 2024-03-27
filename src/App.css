@@ -48,6 +48,10 @@ h3 {
   font-size: 1.125em;
 }
 
+p {
+  line-height: 1.25;
+}
+
 /* === UI === */
 .button {
   display: block;
@@ -71,11 +75,58 @@ h3 {
   color: var(--green);
 }
 
+.card {
+  background-color: var(--white);
+  padding: 1.5em;
+}
+
+.price {
+  font-size: 1em;
+  background-color: var(--green);
+  padding: .25em .5em;
+  display: inline-block;
+  color: var(--white);
+  font-weight: 500;
+  border-radius: .25em;
+  margin-bottom: 1em;
+}
+
+.details-list li {
+  margin-bottom: .5em;
+  line-height: 1.25em;
+}
+
+.details-list li:last-of-type {
+  margin-bottom: 0;
+}
+
+.details-list li .detail-key {
+  font-weight: 600;
+  color: var(--medium-grey);
+}
+
+.owner {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em 0;
+}
+
+.owner img {
+  height: 3em;
+  width: 3em;
+  border-radius: 3em;
+}
+
+.owner span {
+  align-self: center;
+}
 
 /* === Media queries === */
 
 /* Tablet */
 @media (min-width: 620px) {
+
+  /* Typography */
   h1 {
     font-size: 2em;
   }
@@ -88,6 +139,7 @@ h3 {
     font-size: 1.25em;
   }
 
+  /* Structure */
   .container {
     max-width: 840px;
   }
@@ -95,10 +147,21 @@ h3 {
   .grid>a {
     width: calc(33.33% - 0.83em);
   }
+
+  /* UI */
+  .card {
+    padding: 2em;
+  }
+
+  .price {
+    padding: .5em 1em;
+  }
 }
 
 /* Desktop */
 @media (min-width: 840px) {
+
+  /* Structure */
   .container {
     max-width: 1080px;
   }
@@ -110,6 +173,8 @@ h3 {
 
 /* Large screens */
 @media (min-width: 1080px) {
+
+  /* Structure */
   .container {
     max-width: 1280px;
   }

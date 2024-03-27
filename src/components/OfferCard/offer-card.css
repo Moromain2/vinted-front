@@ -1,14 +1,4 @@
-.offer-card .user-info {
-    display: flex;
-    align-items: center;
-    gap: 1em;
-}
-
-.offer-card .user-info span {
-    font-size: .75em;
-}
-
-.offer-card .user-info img {
+.offer-card .owner img {
     height: 1.5em;
     width: 1.5em;
     border-radius: 1.5em;
@@ -26,15 +16,7 @@
     color: var(--medium-grey);
 }
 
-.offer-card .product-info .price {
-    color: var(--black);
-    font-weight: 500;
-    margin-bottom: 1em;
-    display: block;
-}
-
 .offer-card .product-info .details-list .detail {
-    margin-bottom: .5em;
     font-size: .75em;
 }
 

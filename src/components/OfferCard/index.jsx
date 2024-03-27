@@ -7,7 +7,7 @@ const OfferCard = ({ offer }) => {
     return (
         <Link to={`/offer/${offer._id}`}>
             <div className="offer-card">
-                <div className="user-info">
+                <div className="owner">
                     <img src={offer.owner.account.avatar.url} alt={offer.owner.account.username} />
                     <span>{offer.owner.account.username}</span>
                 </div>

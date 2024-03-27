@@ -16,8 +16,6 @@
 }
 
 .home-page-wrapper #hero .container .hero-cta {
-    background-color: var(--white);
-    padding: 1.5em;
     width: 70%;
 }
 
@@ -26,7 +24,6 @@
 /* Tablet */
 @media (min-width: 620px) {
     .home-page-wrapper #hero .container .hero-cta {
-        padding: 1.5em;
         width: 60%;
     }
 }
@@ -34,7 +31,6 @@
 /* Desktop */
 @media (min-width: 840px) {
     .home-page-wrapper #hero .container .hero-cta {
-        padding: 2em;
         width: 50%;
     }
 }

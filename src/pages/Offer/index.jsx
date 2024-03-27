@@ -19,7 +19,7 @@ const OfferPage = ({ data }) => {
         <div className="offer-page-wrapper">
             <div className="container">
                 <img className="offer-hero-image" src={current_offer.product_image.url} alt={current_offer.product_name} />
-                <div className="product-info">
+                <div className="card product-info">
                     <span className="price">{current_offer.product_price} €</span>
                     <ul className="details-list">
                         {current_offer.product_details.map((detail, index) => {
