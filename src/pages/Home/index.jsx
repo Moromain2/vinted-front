@@ -10,80 +10,75 @@ import OfferCard from "../../components/OfferCard";
 
 const HomePage = () => {
 
-    // Data fetching
+    // PAGINATION
+    let offersToShow = 8; // Setting a variable for the amount of offers to show
+    const [page, setPage] = useState(1); // Setting a state for the page variable
+
+    const handlePagination = (action) => {
+        if (page > 1 && action === "previous") {
+            // If it's not the first page and we want to get the previous amount of offers to show
+            setPage(page - 1);
+        } else if (page < (data.count / offersToShow) && action === "next") {
+            // If it's not the last page and we want to get the next amount of offers to show
+            setPage(page + 1);
+        }
+    }
+
+    // DATA FETCHING
     const [data, setData] = useState({}); // Declaring a state for the data object that will be set to the object sent by the API
     const [isLoading, setIsloading] = useState(true); // Declaring a loading state set to true that will be set to false once the data is loaded
 
-    useEffect(() => { // Call of the fetchData function on when the app component renders
+
+    useEffect(() => { // Call of the fetchData function on the first render of the app comppnent
         const fetchData = async () => { // API call via Axios
             try {
-                const response = await axios.get(`${import.meta.env.VITE_API_URL}/offers`);
-                setData(response.data);
-                setIsloading(false);
+                // Pagination data is dynamicaly passed to the url via page and offersToShow variables
+                const response = await axios.get(`${import.meta.env.VITE_API_URL}/offers?page=${page}&limit=${offersToShow}`);
+                setData(response.data); // Data is set to axios response
+                setIsloading(false); // Loadingg state is set to false after the axios response
             } catch (error) {
                 console.log(error.message);
             }
         }
-        fetchData();
-    }, []);
+        fetchData(); // Function is called once the component has rendered
+    }, [offersToShow, page]); // Dependencies array
 
-    // Pagination - WIP
-    // let productsToShow = 6;
-
-    // const [limit, setLimit] = useState(productsToShow); // Setting a state for the amount of offers to show defaults to 6
-    // const [skip, setSkip] = useState(0);
-
-    // const handlePagination = (action) => {
-    //     console.log("BEFORE RENDER : ", "skip >>> ", skip, "limit >>> ", limit);
-    //     if (action === "next-page" && limit < data.count) {
-    //         setSkip(skip + productsToShow);
-    //         setLimit(limit + productsToShow);
-    //     } else if (action === "previous-page" && skip !== 0) {
-    //         setSkip(skip - productsToShow);
-    //         setLimit(limit - productsToShow);
-    //     }
-    // }
-    // console.log("AFTER RENDER : ", "skip >>> ", skip, "limit >>> ", limit);
-
-    // console.log(data.offers.slice(skip, limit));
 
     return (
         <>
             {isLoading ? <p>Loading data...</p> :
-                <div className="home-page-wrapper">
-                    <section id="hero">
-                        <div className="container">
-                            <div className="card hero-cta">
-                                <h1>Prêts à faire du tri dans vos placards ?</h1>
-                                <button className="button button-fill">Commencer à vendre</button>
+                // If the data has been fetched
+                <>
+                    <div className="page-wrapper home-page-wrapper">
+                        <section id="hero">
+                            <div className="container">
+                                <div className="card hero-cta">
+                                    <h1>Prêts à faire du tri dans vos placards ?</h1>
+                                    <button className="button button-fill">Commencer à vendre</button>
+                                </div>
                             </div>
+                        </section>
+                        <section id="products">
+                            <div className="container">
+                                <h2>Fil d'actu</h2>
+                                <div className="grid">
+                                    {data.offers.map((offer) => {
+                                        return (
+                                            <OfferCard key={offer._id} offer={offer} />
+                                        )
+                                    })}
+                                </div>
+                            </div>
+                        </section >
+                    </div >
+                    <section id="navigation">
+                        <div className="container">
+                            <button onClick={() => { handlePagination("previous") }} className={page === 1 ? `button button-inactive` : `button button-inline`}>Précédent</button>
+                            <span>Page {page} / {Math.ceil(data.count / offersToShow)}</span>
+                            <button onClick={() => { handlePagination("next") }} className={page === Math.ceil(data.count / offersToShow) ? `button button-inactive` : `button button-inline`}>Suivant</button>
                         </div>
                     </section>
-                    <section id="products">
-                        <div className="container">
-                            <h2>Fil d'actu</h2>
-                            <div className="grid">
-                                {/* {data.offers.slice(skip, limit).map((offer) => { */}
-                                {data.offers.map((offer) => {
-                                    return (
-                                        <OfferCard key={offer._id} offer={offer} />
-                                    )
-                                })}
-                            </div>
-                        </div>
-                        <div className="container">
-                            {/* WIP */}
-                            {/* <br />
-                            <br />
-                            <br />
-                            <button onClick={() => { handlePagination("previous-page") }}>Previous page</button>
-                            <button onClick={() => { handlePagination("next-page") }}>Next page</button>
-                            <br />
-                            <br />
-                            <br /> */}
-                        </div>
-                    </section >
-                </div >
+                </>
 
             }
         </>

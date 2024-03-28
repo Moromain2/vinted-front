@@ -19,6 +19,22 @@
     width: 70%;
 }
 
+#navigation {
+    border-top: 1px solid var(--light-grey);
+}
+
+#navigation .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 3em;
+    padding-bottom: 3em;
+}
+
+#navigation .container .button {
+    max-width: 8em;
+}
+
 /* === Media queries === */
 
 /* Tablet */

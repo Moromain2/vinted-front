@@ -16,6 +16,10 @@ body {
   margin: 0 auto;
 }
 
+.page-wrapper {
+  padding: 3em 0;
+}
+
 .grid {
   display: flex;
   flex-wrap: wrap;
@@ -80,6 +84,12 @@ p {
   background-color: var(--red);
   border-color: var(--red);
   color: var(--white);
+}
+
+.button.button-inactive {
+  background-color: var(--light-grey);
+  border-color: var(--medium-grey);
+  color: var(--medium-grey);
 }
 
 .card {
@@ -217,6 +227,19 @@ p {
 
   .grid>a {
     width: calc(25% - 1em);
+  }
+
+  .page-wrapper {
+    padding: 5em 0;
+  }
+
+  /* UI */
+  .button:hover {
+    cursor: pointer;
+  }
+
+  .button.button-inactive:hover {
+    cursor: not-allowed;
   }
 }
 

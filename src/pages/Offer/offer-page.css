@@ -1,8 +1,6 @@
 /* CSS for offer page template */
 
 .offer-page-wrapper {
-    padding-top: 2em;
-    padding-bottom: 3em;
     background-color: var(--light-grey);
 }
 

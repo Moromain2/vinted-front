@@ -51,7 +51,7 @@ const SignUpPage = () => {
     }
 
     return (
-        <div className="signup-page-wrapper">
+        <div className="page-wrapper signup-page-wrapper">
             <div className="container">
                 <h1>Créer un compte</h1>
                 {Cookies.get("user_token") !== undefined ?

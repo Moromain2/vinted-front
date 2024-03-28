@@ -35,7 +35,7 @@ const OfferPage = () => {
     } else {
         // If the data is fetched
         return (
-            <div className="offer-page-wrapper">
+            <div className="page-wrapper offer-page-wrapper">
                 <div className="container">
                     <img className="offer-hero-image" src={offer.product_image.url} alt={offer.product_name} />
                     <div className="card product-info">

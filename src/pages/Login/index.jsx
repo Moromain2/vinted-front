@@ -48,7 +48,7 @@ const LoginPage = () => {
     }
 
     return (
-        <div className="login-page-wrapper">
+        <div className="page-wrapper login-page-wrapper">
             <div className="container">
                 <h1>Se connecter</h1>
                 {Cookies.get("user_token") !== undefined ?

@@ -2,8 +2,6 @@
 
 .login-page-wrapper {
     background-color: var(--light-grey);
-    padding-top: 3em;
-    padding-bottom: 3em;
 }
 
 .login-page-wrapper h1 {

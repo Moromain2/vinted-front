@@ -60,10 +60,19 @@ const Navigation = () => {
                                 <li><Link to="/login" className="button button-inline">Se connecter</Link></li>
                             </>
                             :
-                            <li><button onClick={() => {
-                                Cookies.remove("user_token");
-                                navigate("/signup");
-                            }} className="button button-danger">Se déconnecter</button></li>
+                            <>
+                                <li>Vous êtes connectés</li>
+                                <li>
+                                    <button
+                                        onClick={() => {
+                                            Cookies.remove("user_token");
+                                            navigate("/signup");
+                                        }}
+                                        className="button button-danger">
+                                        Se déconnecter
+                                    </button>
+                                </li>
+                            </>
                         }
                     </ul>
                 </div>

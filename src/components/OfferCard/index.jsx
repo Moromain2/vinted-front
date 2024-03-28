@@ -23,7 +23,7 @@ const OfferCard = ({ offer }) => {
                             // Setting a dynamic key to display info in the details array
                             const detail_value = Object.keys(detail);
                             // If the key value is not empty
-                            if (detail[detail_value[0]] != "") {
+                            if (detail[detail_value[0]] !== "") {
                                 return (
                                     <li key={index} className="detail">{detail[detail_value[0]]}</li>
                                 )
