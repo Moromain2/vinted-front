@@ -9,6 +9,10 @@ body {
   font-size: 16px;
 }
 
+footer a {
+  font-weight: 500;
+}
+
 /* === Structure === */
 .container {
   max-width: 620px;
@@ -17,7 +21,7 @@ body {
 }
 
 .page-wrapper {
-  padding: 3em 0;
+  padding: 3em 0 12em 0;
 }
 
 .grid {
@@ -203,10 +207,6 @@ p {
     max-width: 840px;
   }
 
-  .grid>a {
-    width: calc(33.33% - 0.83em);
-  }
-
   /* UI */
   .card {
     padding: 2em;
@@ -230,7 +230,7 @@ p {
   }
 
   .page-wrapper {
-    padding: 5em 0;
+    padding: 5em 0 20em 0;
   }
 
   /* UI */

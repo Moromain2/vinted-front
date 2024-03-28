@@ -13,7 +13,6 @@ import LoginPage from './pages/Login';
 // Components imports
 import Navigation from "./components/Navigation";
 
-
 function App() {
 
   return (
@@ -27,7 +26,6 @@ function App() {
           <Route path='/login' element={<LoginPage />} />
         </Routes>
       </Router>
-
     </>
   )
 }

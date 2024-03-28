@@ -20,15 +20,19 @@
 }
 
 #navigation {
-    border-top: 1px solid var(--light-grey);
+    border-top: 1px solid var(--green);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--white);
 }
 
 #navigation .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 3em;
-    padding-bottom: 3em;
+    padding-top: 2em;
+    padding-bottom: 2em;
 }
 
 #navigation .container .button {
