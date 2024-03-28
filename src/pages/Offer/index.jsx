@@ -13,19 +13,19 @@ const OfferPage = () => {
     const [offer, setOffer] = useState({});
     const [isLoading, setIsloading] = useState(true);
 
-    const fetchData = async () => { // API call via Axios with the offer's id
-        try {
-            const response = await axios.get(`https://lereacteur-vinted-api.herokuapp.com/offer/${id}`);
-            setOffer(response.data);
-            setIsloading(false);
-        } catch (error) {
-            console.log(error.message);
-        }
-    }
 
     useEffect(() => { // Call of the fetchData function when the page renders
+        const fetchData = async () => { // API call via Axios with the offer's id
+            try {
+                const response = await axios.get(`https://lereacteur-vinted-api.herokuapp.com/offer/${id}`);
+                setOffer(response.data);
+                setIsloading(false);
+            } catch (error) {
+                console.log(error.message);
+            }
+        }
         fetchData();
-    });
+    }, [id]);
 
     if (isLoading === true) { // If the data has not yet been fetched
         return (

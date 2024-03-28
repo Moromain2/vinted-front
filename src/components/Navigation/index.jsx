@@ -8,6 +8,7 @@ import "./navigation.css";
 // Assets imports
 import VintedLogo from "../../assets/images/vectors/VintedLogo";
 import BurgerIcon from "../../assets/images/vectors/BurgerIcon";
+import CloseIcon from "../../assets/images/vectors/CloseIcon";
 import ArrowDown from "../../assets/images/vectors/ArrowDown";
 import ManifyingGlass from "../../assets/images/vectors/ManifyingGlass";
 
@@ -24,7 +25,7 @@ const Navigation = () => {
                         <VintedLogo className="header-logo" />
                     </Link>
                     <button className="menu-button" onClick={() => { setShowMenu(!showMenu) }}>
-                        <BurgerIcon />
+                        {!showMenu ? <BurgerIcon /> : <CloseIcon />}
                     </button>
                 </div>
             </div>
@@ -33,9 +34,9 @@ const Navigation = () => {
                     <div className="search-type">
                         <button className="search-type-selector" onClick={() => { setShowDropdown(!showDropdown) }}><span>Articles</span><ArrowDown /></button>
                         <ul className={showDropdown ? "search-type-list" : "search-type-list hide-dropdown"}>
-                            <li>Articles</li>
-                            <li>Membres</li>
-                            <li>Centre d'aide</li>
+                            <li><Link to="/">Articles</Link></li>
+                            <li><Link to="/">Membres</Link></li>
+                            <li><Link to="/">Centre d'aide</Link></li>
                         </ul>
                     </div>
                     <div className="search-input">

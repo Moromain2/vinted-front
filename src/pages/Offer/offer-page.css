@@ -11,6 +11,10 @@
     max-height: 650px;
 }
 
+.offer-page-wrapper .container .product-info {
+    width: 100%;
+}
+
 .offer-page-wrapper .container .product-info .details-list {
     margin-bottom: 1em;
     padding-bottom: 1em;
