@@ -13,8 +13,6 @@ const OfferPage = () => {
     const [offer, setOffer] = useState({});
     const [isLoading, setIsloading] = useState(true);
 
-    console.log(import.meta.env.API_URL);
-
     useEffect(() => { // Call of the fetchData function when the page renders
         const fetchData = async () => { // API call via Axios with the offer's id
             try {
@@ -46,12 +44,15 @@ const OfferPage = () => {
                             {offer.product_details.map((detail, index) => {
                                 // Setting a dynamic key to collect all the data in the array
                                 const detail_value = Object.keys(detail);
-                                return (
-                                    <li key={index}>
-                                        <span className="detail-key">{detail_value[0]} : </span>
-                                        <span className="detail-value">{detail[detail_value[0]]}</span>
-                                    </li>
-                                )
+                                // If the key value is not empty
+                                if (detail[detail_value[0]] !== "") {
+                                    return (
+                                        <li key={index}>
+                                            <span className="detail-key">{detail_value[0]} : </span>
+                                            <span className="detail-value">{detail[detail_value[0]]}</span>
+                                        </li>
+                                    )
+                                }
                             })}
                         </ul>
                         <div className="description">
@@ -59,7 +60,9 @@ const OfferPage = () => {
                             <p>{offer.product_description}</p>
                         </div>
                         <div className="owner">
-                            <img src={offer.owner.account.avatar.url} alt={offer.owner.account.username} />
+                            {offer.owner.account.avatar &&
+                                <img src={offer.owner.account.avatar.url} alt={offer.owner.account.username} />
+                            }
                             <span>{offer.owner.account.username}</span>
                         </div>
                         <button className="button button-fill">Acheter</button>

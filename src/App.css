@@ -30,7 +30,8 @@ body {
 /* === Typography === */
 h1,
 h2,
-h3 {
+h3,
+h4 {
   font-weight: bold;
   margin-bottom: 1em;
   line-height: 1.25em;
@@ -125,6 +126,48 @@ p {
 
 .owner span {
   align-self: center;
+}
+
+.form-container {
+  max-width: 600px;
+  margin: auto;
+}
+
+.form-container .input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container .input-group label {
+  margin-bottom: .5em;
+  font-weight: 500;
+  color: var(--medium-grey);
+}
+
+.form-container .input-group input {
+  font-size: 1em;
+  padding: .5em 1em;
+  margin-bottom: 2em;
+}
+
+.form-modal {
+  border: 1px solid var(--red);
+  border-radius: .25em;
+  color: var(--red);
+  padding: .5em 1em;
+  margin: .5em 0;
+}
+
+.hint {
+  border-radius: .25em;
+  border: 1px solid var(--medium-grey);
+  color: var(--medium-grey);
+  padding: 1em;
+  margin-top: 1em;
+}
+
+.hint a {
+  text-decoration: underline;
 }
 
 /* === Media queries === */

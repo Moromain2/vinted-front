@@ -27,8 +27,6 @@ const HomePage = () => {
         fetchData();
     }, []);
 
-    console.log(data);
-
     // Pagination - WIP
     // let productsToShow = 6;
 
