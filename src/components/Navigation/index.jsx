@@ -50,8 +50,8 @@ const Navigation = () => {
             <nav className={showMenu === false && "hide-menu-mobile"}>
                 <div className="container">
                     <ul className="navlinks">
-                        <li><Link to="/sign-up" className="button button-fill">S'inscrire | Se connecter</Link></li>
-                        <li><Link to="/sign-up" className="button button-inline">Vends tes articles</Link></li>
+                        <li><Link to="/signup" className="button button-fill">S'inscrire</Link></li>
+                        <li><Link to="/signin" className="button button-inline">Se connecter</Link></li>
                     </ul>
                 </div>
             </nav>
