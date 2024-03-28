@@ -1,6 +1,7 @@
 // Modules imports
 import { useState } from "react";
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import Cookies from "js-cookie"; // Cookies
 
 // CSS import for Navigation
 import "./navigation.css";
@@ -12,10 +13,13 @@ import CloseIcon from "../../assets/images/vectors/CloseIcon";
 import ArrowDown from "../../assets/images/vectors/ArrowDown";
 import ManifyingGlass from "../../assets/images/vectors/ManifyingGlass";
 
+
 const Navigation = () => {
     // Setting a state to hide or show items on mobile
     const [showMenu, setShowMenu] = useState(false);
     const [showDropdown, setShowDropdown] = useState(false);
+
+    const navigate = useNavigate(); // Setting a navigate variable to the useNavigate function
 
     return (
         <header>
@@ -50,8 +54,17 @@ const Navigation = () => {
             <nav className={showMenu === false && "hide-menu-mobile"}>
                 <div className="container">
                     <ul className="navlinks">
-                        <li><Link to="/signup" className="button button-fill">S'inscrire</Link></li>
-                        <li><Link to="/signin" className="button button-inline">Se connecter</Link></li>
+                        {Cookies.get("user_token") === undefined ?
+                            <>
+                                <li><Link to="/signup" className="button button-fill">S'inscrire</Link></li>
+                                <li><Link to="/login" className="button button-inline">Se connecter</Link></li>
+                            </>
+                            :
+                            <li><button onClick={() => {
+                                Cookies.remove("user_token");
+                                navigate("/signup");
+                            }} className="button button-danger">Se déconnecter</button></li>
+                        }
                     </ul>
                 </div>
             </nav>

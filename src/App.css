@@ -75,6 +75,12 @@ p {
   color: var(--green);
 }
 
+.button.button-danger {
+  background-color: var(--red);
+  border-color: var(--red);
+  color: var(--white);
+}
+
 .card {
   background-color: var(--white);
   padding: 1.5em;

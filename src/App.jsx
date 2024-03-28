@@ -8,6 +8,7 @@ import './App.css'
 import HomePage from './pages/Home';
 import OfferPage from './pages/Offer';
 import SignUpPage from './pages/SignUp';
+import LoginPage from './pages/Login';
 
 // Components imports
 import Navigation from "./components/Navigation";
@@ -23,6 +24,7 @@ function App() {
           <Route path='/' element={<HomePage />} />
           <Route path='/offer/:id' element={<OfferPage />} />
           <Route path='/signup' element={<SignUpPage />} />
+          <Route path='/login' element={<LoginPage />} />
         </Routes>
       </Router>
 
