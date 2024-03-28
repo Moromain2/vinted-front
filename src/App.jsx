@@ -11,6 +11,7 @@ import OfferPage from './pages/Offer';
 // Components imports
 import Navigation from "./components/Navigation";
 
+
 function App() {
 
   return (

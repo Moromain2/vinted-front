@@ -17,7 +17,7 @@ const HomePage = () => {
     useEffect(() => { // Call of the fetchData function on when the app component renders
         const fetchData = async () => { // API call via Axios
             try {
-                const response = await axios.get("https://lereacteur-vinted-api.herokuapp.com/offers");
+                const response = await axios.get(`${import.meta.env.VITE_API_URL}/offers`);
                 setData(response.data);
                 setIsloading(false);
             } catch (error) {

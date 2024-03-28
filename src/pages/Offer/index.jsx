@@ -13,11 +13,12 @@ const OfferPage = () => {
     const [offer, setOffer] = useState({});
     const [isLoading, setIsloading] = useState(true);
 
+    console.log(import.meta.env.API_URL);
 
     useEffect(() => { // Call of the fetchData function when the page renders
         const fetchData = async () => { // API call via Axios with the offer's id
             try {
-                const response = await axios.get(`https://lereacteur-vinted-api.herokuapp.com/offer/${id}`);
+                const response = await axios.get(`${import.meta.env.VITE_API_URL}/offer/${id}`);
                 setOffer(response.data);
                 setIsloading(false);
             } catch (error) {
