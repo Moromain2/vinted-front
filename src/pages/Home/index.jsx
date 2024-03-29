@@ -6,6 +6,7 @@ import axios from 'axios'; // Data fetching
 import "./home-page.css";
 
 // Components imports
+import Loader from "../../components/Loader";
 import OfferCard from "../../components/OfferCard";
 
 const HomePage = () => {
@@ -46,7 +47,7 @@ const HomePage = () => {
 
     return (
         <>
-            {isLoading ? <p>Loading data...</p> :
+            {isLoading ? <Loader /> :
                 // If the data has been fetched
                 <>
                     <div className="page-wrapper home-page-wrapper">

@@ -1,0 +1,10 @@
+/* CSS for Loader component */
+
+.loader-container {
+    margin-top: 5em;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    color: var(--medium-grey);
+}

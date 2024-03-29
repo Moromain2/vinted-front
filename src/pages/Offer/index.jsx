@@ -6,6 +6,9 @@ import axios from 'axios';
 // CSS import for offer page template
 import "./offer-page.css";
 
+// Components imports
+import Loader from "../../components/Loader";
+
 const OfferPage = () => {
 
     const { id } = useParams(); // Destructuration of params data
@@ -29,9 +32,7 @@ const OfferPage = () => {
 
     if (isLoading === true) { // If the data has not yet been fetched
         return (
-            <div className="container">
-                <p>Loading...</p>
-            </div>
+            <Loader />
         )
     } else {
         // If the data is fetched
