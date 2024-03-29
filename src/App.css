@@ -176,7 +176,7 @@ p {
   width: 1.5em;
 }
 
-.form-modal {
+.form-error {
   border: 1px solid var(--red);
   border-radius: .25em;
   color: var(--red);
