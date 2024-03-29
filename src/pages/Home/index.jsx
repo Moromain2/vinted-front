@@ -9,7 +9,7 @@ import "./home-page.css";
 import Loader from "../../components/Loader";
 import OfferCard from "../../components/OfferCard";
 
-const HomePage = () => {
+const HomePage = (filter) => {
 
     // PAGINATION
     let offersToShow = 8; // Setting a variable for the amount of offers to show
@@ -29,12 +29,11 @@ const HomePage = () => {
     const [data, setData] = useState({}); // Declaring a state for the data object that will be set to the object sent by the API
     const [isLoading, setIsloading] = useState(true); // Declaring a loading state set to true that will be set to false once the data is loaded
 
-
     useEffect(() => { // Call of the fetchData function on the first render of the app comppnent
         const fetchData = async () => { // API call via Axios
             try {
                 // Pagination data is dynamicaly passed to the url via page and offersToShow variables
-                const response = await axios.get(`${import.meta.env.VITE_API_URL}/offers?page=${page}&limit=${offersToShow}`);
+                const response = await axios.get(`${import.meta.env.VITE_API_URL}/offers?page=${page}&limit=${offersToShow}&title=${filter.title}&princeMin=${filter.priceMin}&priceMax=${filter.priceMax}&sort=${filter.sort}`);
                 setData(response.data); // Data is set to axios response
                 setIsloading(false); // Loadingg state is set to false after the axios response
             } catch (error) {
@@ -42,7 +41,7 @@ const HomePage = () => {
             }
         }
         fetchData(); // Function is called once the component has rendered
-    }, [offersToShow, page]); // Dependencies array
+    }, [offersToShow, page, filter]); // Dependencies array
 
 
     return (

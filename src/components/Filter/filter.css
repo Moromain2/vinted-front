@@ -1,0 +1,39 @@
+/* CSS for filter component */
+
+.filter-form {
+    width: 100%;
+    position: relative;
+}
+
+.filter-form h3 {
+    color: var(--medium-grey);
+    margin-bottom: .5em;
+}
+
+.filter-form form .search-article {
+    padding-bottom: 1em;
+}
+
+.filter-form form .input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-form form .price-sort,
+.filter-form form .price-range {
+    display: flex;
+    justify-content: space-between;
+}
+
+.filter-form .filters {
+    position: absolute;
+    background-color: var(--white);
+    padding: 1em;
+    border-radius: .25em;
+    border: 1px solid var(--light-grey);
+    top: calc(100% + 1em);
+}
+
+.filter-form .filters>div:first-of-type {
+    margin-bottom: 1em;
+}

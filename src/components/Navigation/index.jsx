@@ -13,8 +13,11 @@ import CloseIcon from "../../assets/images/vectors/CloseIcon";
 import ArrowDown from "../../assets/images/vectors/ArrowDown";
 import ManifyingGlass from "../../assets/images/vectors/ManifyingGlass";
 
+// Components imports
+import Filter from "../Filter";
 
-const Navigation = () => {
+
+const Navigation = ({ filter, setFilter }) => {
     // Setting a state to hide or show items on mobile
     const [showMenu, setShowMenu] = useState(false);
     const [showDropdown, setShowDropdown] = useState(false);
@@ -35,7 +38,7 @@ const Navigation = () => {
             </div>
             <div className="search-box-container">
                 <div className="container">
-                    <div className="search-type">
+                    {/* <div className="search-type">
                         <button className="search-type-selector" onClick={() => { setShowDropdown(!showDropdown) }}><span>Articles</span><ArrowDown /></button>
                         <ul className={showDropdown ? "search-type-list" : "search-type-list hide-dropdown"}>
                             <li><Link to="/">Articles</Link></li>
@@ -48,7 +51,9 @@ const Navigation = () => {
                         <form>
                             <input type="text" placeholder="Rechercher des articles" />
                         </form>
-                    </div>
+                    </div> */}
+                    {/* filter object and set filter function are passed through props from the app component */}
+                    <Filter filter={filter} setFilter={setFilter} />
                 </div>
             </div>
             <nav className={showMenu === false && "hide-menu-mobile"}>
