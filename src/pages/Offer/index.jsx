@@ -7,6 +7,7 @@ import axios from 'axios';
 import "./offer-page.css";
 
 const OfferPage = () => {
+
     const { id } = useParams(); // Destructuration of params data
 
     // Data fetching
@@ -37,7 +38,7 @@ const OfferPage = () => {
         return (
             <div className="page-wrapper offer-page-wrapper">
                 <div className="container">
-                    <img className="offer-hero-image" src={offer.product_image.url} alt={offer.product_name} />
+                    <img className="offer-hero-image" src={offer.product_image.secure_url} alt={offer.product_name} />
                     <div className="card product-info">
                         <span className="price">{offer.product_price} €</span>
                         <ul className="details-list">
@@ -61,7 +62,7 @@ const OfferPage = () => {
                         </div>
                         <div className="owner">
                             {offer.owner.account.avatar &&
-                                <img src={offer.owner.account.avatar.url} alt={offer.owner.account.username} />
+                                <img src={offer.owner.account.avatar.secure_url} alt={offer.owner.account.username} />
                             }
                             <span>{offer.owner.account.username}</span>
                         </div>

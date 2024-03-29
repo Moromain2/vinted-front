@@ -1,4 +1,7 @@
 /* CSS for home page */
+.home-page-wrapper {
+    padding-top: 0;
+}
 
 .home-page-wrapper #hero {
     height: 500px;
@@ -21,18 +24,14 @@
 
 #navigation {
     border-top: 1px solid var(--green);
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: var(--white);
 }
 
 #navigation .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 2em;
-    padding-bottom: 2em;
+    padding-top: 1em;
+    padding-bottom: 1em;
 }
 
 #navigation .container .button {

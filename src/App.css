@@ -21,7 +21,7 @@ footer a {
 }
 
 .page-wrapper {
-  padding: 3em 0 12em 0;
+  padding: 3em 0 5em 0;
 }
 
 .grid {
@@ -230,12 +230,22 @@ p {
   }
 
   .page-wrapper {
-    padding: 5em 0 20em 0;
+    padding: 5em 0 8em 0;
   }
 
   /* UI */
+  .button {
+    transition: var(--transition);
+  }
+
   .button:hover {
     cursor: pointer;
+    opacity: .9;
+  }
+
+  .button.button-inline:hover {
+    background-color: var(--green);
+    color: var(--white);
   }
 
   .button.button-inactive:hover {

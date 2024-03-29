@@ -9,12 +9,12 @@ const OfferCard = ({ offer }) => {
             <div className="offer-card">
                 <div className="owner">
                     {offer.owner.account.avatar &&
-                        <img src={offer.owner.account.avatar.url} alt={offer.owner.account.username} />
+                        <img src={offer.owner.account.avatar.secure_url} alt={offer.owner.account.username} />
                     }
                     <span>{offer.owner.account.username}</span>
                 </div>
                 <div className="product-image">
-                    <img src={offer.product_image.url} alt={offer.product_name} />
+                    <img src={offer.product_image.secure_url} alt={offer.product_name} />
                 </div>
                 <div className="product-info">
                     <span className="price">{offer.product_price} €</span>
