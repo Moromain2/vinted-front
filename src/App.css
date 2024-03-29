@@ -164,6 +164,18 @@ p {
   margin-bottom: 2em;
 }
 
+.form-container .checkbox-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2em;
+}
+
+.form-container .checkbox-group input[type="checkbox"] {
+  margin-right: 1em;
+  height: 1.5em;
+  width: 1.5em;
+}
+
 .form-modal {
   border: 1px solid var(--red);
   border-radius: .25em;

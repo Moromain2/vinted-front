@@ -14,7 +14,7 @@ const SignUpPage = () => {
         username: "",
         email: "",
         password: "",
-        newsletter: true
+        newsletter: false
     })
 
     // Function to collect the client's input : argument input_key has to be set to one of the form's value to be pushed to the matching key of the user object
@@ -27,8 +27,11 @@ const SignUpPage = () => {
             newUser.email = input_value;
         } else if (input_key === "password") {
             newUser.password = input_value;
+        } else if (input_key === "newsletter") {
+            newUser.newsletter = !newUser.newsletter;
         }
         setUser(newUser);
+        console.log(user);
     }
 
     const navigate = useNavigate(); // Setting a navigate variable to the useNavigate function
@@ -78,13 +81,17 @@ const SignUpPage = () => {
                             </div>
                             <div className="input-group">
                                 <label htmlFor="password">Mot de passe <span>(requis)</span></label>
-                                <input onChange={(e) => handleInput(e, "password")} type="password" name="password" id="password" placeholder="Ab765Thq_xv90!=mAq" required />
+                                <input onChange={(e) => handleInput(e, "password")} type="password" name="password" id="password" placeholder="Ab765Thq_xv90!=mAq" autoComplete="on" required />
+                            </div>
+                            <div className="checkbox-group">
+                                <input onChange={(e) => handleInput(e, "newsletter")} type="checkbox" name="newseletter" id="newsletter" />
+                                <label htmlFor="newsletter">S'inscrire à la newsletter</label>
                             </div>
                             <input className="button button-fill" type="submit" value="S'inscrire" />
                         </form>
                         <div className="hint">
                             <h4>Vous n'avez déjà un compte ? </h4>
-                            <Link cla to="/login">Connectez vous ici</Link>
+                            <Link to="/login">Connectez vous ici</Link>
                         </div>
                     </div>
                 }
