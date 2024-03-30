@@ -7,4 +7,26 @@
     justify-content: center;
     flex-wrap: wrap;
     color: var(--medium-grey);
+    text-align: center;
+}
+
+.loader-container svg {
+    animation: rotation 2s ease infinite;
+    width: 5em;
+    height: 5em;
+    fill: var(--green);
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg) scale(0.75);
+    }
+
+    50% {
+        transform: rotate(180deg) scale(1);
+    }
+
+    to {
+        transform: rotate(360deg) scale(0.75);
+    }
 }
