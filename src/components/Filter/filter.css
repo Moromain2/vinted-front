@@ -8,15 +8,50 @@
 .filter-form h3 {
     color: var(--medium-grey);
     margin-bottom: .5em;
+    font-size: 1em;
 }
 
-.filter-form form .search-article {
-    padding-bottom: 1em;
-}
-
-.filter-form form .input-group {
+.filter-form form .search-bar-container {
+    padding: .5em 1em;
     display: flex;
-    flex-direction: column;
+    background-color: var(--light-grey);
+    margin: 1em;
+    border-radius: .25em;
+    gap: 1em;
+}
+
+.filter-form form .search-bar-container .search-input {
+    flex: 4;
+    display: flex;
+    gap: .5em;
+    align-items: center;
+}
+
+.filter-form form .search-bar-container .search-input svg {
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.filter-form form .search-bar-container .search-input input {
+    width: 100%;
+    font-size: 1em;
+    padding: .5em;
+    background-color: var(--light-grey);
+    border: 1px solid var(--medium-grey);
+    border-radius: .25em;
+}
+
+.filter-form form .search-bar-container button {
+    width: auto;
+    padding: .5em 1em;
+    display: flex;
+    gap: .25em;
+    align-items: center;
+}
+
+.filter-form form .search-bar-container button svg {
+    height: 1.5em;
+    width: 1.5em;
 }
 
 .filter-form form .price-sort,
@@ -25,15 +60,47 @@
     justify-content: space-between;
 }
 
-.filter-form .filters {
+.filter-form .filters-container {
     position: absolute;
     background-color: var(--white);
     padding: 1em;
     border-radius: .25em;
     border: 1px solid var(--light-grey);
-    top: calc(100% + 1em);
+    top: 100%;
+    margin: 1.5em 1em;
+    width: calc(100% - 2em);
+    display: flex;
 }
 
-.filter-form .filters>div:first-of-type {
-    margin-bottom: 1em;
+.filter-form .filters-container .price-range {
+    display: flex;
+    align-items: center;
+    gap: .5em;
+}
+
+.filter-form .filters-container .price-range .input-group {
+    width: min-content;
+}
+
+.filter-form .filters-container .price-range .input-group input {
+    width: 6em;
+}
+
+.filter-form .filters-container .price-sort {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+}
+
+/* === MEDIA QUERIES === */
+
+@media (min-width: 840px) {
+    .filter-form form .search-bar-container {
+        margin: .5em;
+    }
+
+    .filter-form .filters-container {
+        margin: .5em;
+        width: calc(100% - 1em);
+    }
 }

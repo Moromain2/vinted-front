@@ -36,26 +36,8 @@ const Navigation = ({ filter, setFilter }) => {
                     </button>
                 </div>
             </div>
-            <div className="search-box-container">
-                <div className="container">
-                    {/* <div className="search-type">
-                        <button className="search-type-selector" onClick={() => { setShowDropdown(!showDropdown) }}><span>Articles</span><ArrowDown /></button>
-                        <ul className={showDropdown ? "search-type-list" : "search-type-list hide-dropdown"}>
-                            <li><Link to="/">Articles</Link></li>
-                            <li><Link to="/">Membres</Link></li>
-                            <li><Link to="/">Centre d'aide</Link></li>
-                        </ul>
-                    </div>
-                    <div className="search-input">
-                        <ManifyingGlass />
-                        <form>
-                            <input type="text" placeholder="Rechercher des articles" />
-                        </form>
-                    </div> */}
-                    {/* filter object and set filter function are passed through props from the app component */}
-                    <Filter filter={filter} setFilter={setFilter} />
-                </div>
-            </div>
+            {/* filter object and set filter function are passed through props from the app component */}
+            <Filter filter={filter} setFilter={setFilter} />
             <nav className={showMenu === false && "hide-menu-mobile"}>
                 <div className="container">
                     <ul className="navlinks">

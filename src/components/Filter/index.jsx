@@ -3,6 +3,10 @@ import { useState } from "react";
 // CSS import for component
 import "./filter.css";
 
+// Assets imports
+import ManifyingGlass from "../../assets/images/vectors/ManifyingGlass";
+import FilterIcon from "../../assets/images/vectors/FilterIcon";
+
 const Filter = ({ filter, setFilter }) => {
 
     const [showFilters, setShowFilters] = useState(false);
@@ -10,7 +14,6 @@ const Filter = ({ filter, setFilter }) => {
     const handleInput = (e, key) => {
         const filterClone = { ...filter };
         if (key === "price-desc" || key === "price-asc") {
-            const input_value = e.target.checked;
             if (key === "price-desc") {
                 filterClone.sort = "price-desc"
             } else {
@@ -26,33 +29,42 @@ const Filter = ({ filter, setFilter }) => {
     return (
         <div className="filter-form">
             <form>
-                <label htmlFor="title"><h3>Rechercher un article</h3></label>
-                <div className="input-group search-article">
-                    <input onChange={(e) => { handleInput(e, "title") }} type="text" name="title" id="title" />
+                <div className="search-bar-container">
+                    <div className="search-input">
+                        <ManifyingGlass />
+                        <input onChange={(e) => { handleInput(e, "title") }} type="text" name="title" id="title" placeholder="Rechercher un article" />
+                    </div>
+                    <button onClick={(e) => { e.preventDefault(); setShowFilters(!showFilters) }} className="button button-fill">
+                        <FilterIcon />
+                        <span>Filtres</span>
+                    </button>
                 </div>
-                <button onClick={(e) => { e.preventDefault(); setShowFilters(!showFilters) }} className="button button-fill">Filtres</button>
                 {showFilters &&
-                    <div className="filters">
-                        <h3>Tranche de prix</h3>
-                        <div className="price-range">
-                            <div className="input-group">
-                                <label htmlFor="priceMin">Prix minmum</label>
-                                <input onChange={(e) => { handleInput(e, "priceMin") }} type="number" name="priceMin" id="priceMin" />
-                            </div>
-                            <div className="input-group">
-                                <label htmlFor="priceMax">Prix maximum</label>
-                                <input onChange={(e) => { handleInput(e, "priceMax") }} type="number" name="priceMax" id="priceMax" />
+                    <div className="filters-container">
+                        <div>
+                            <h3>Tranche de prix</h3>
+                            <div className="price-range">
+                                <div className="input-group">
+                                    <label htmlFor="priceMin">Prix min.</label>
+                                    <input onChange={(e) => { handleInput(e, "priceMin") }} type="number" name="priceMin" id="priceMin" />
+                                </div>
+                                <div className="input-group">
+                                    <label htmlFor="priceMax">Prix max.</label>
+                                    <input onChange={(e) => { handleInput(e, "priceMax") }} type="number" name="priceMax" id="priceMax" />
+                                </div>
                             </div>
                         </div>
-                        <h3>Trier par</h3>
-                        <div className="price-sort">
-                            <div className="checkbox-group">
-                                <label htmlFor="sort">Prix décroissant</label>
-                                <input onChange={(e) => { handleInput(e, "price-desc") }} type="radio" name="sort" id="sort" />
-                            </div>
-                            <div className="checkbox-group">
-                                <label htmlFor="sort">Prix croissant</label>
-                                <input onChange={(e) => { handleInput(e, "price-asc") }} type="radio" name="sort" id="sort" />
+                        <div>
+                            <h3>Trier par</h3>
+                            <div className="price-sort">
+                                <div className="checkbox-group">
+                                    <input onChange={(e) => { handleInput(e, "price-desc") }} type="radio" name="sort" id="sort" />
+                                    <label htmlFor="sort">Prix décroissant</label>
+                                </div>
+                                <div className="checkbox-group">
+                                    <input onChange={(e) => { handleInput(e, "price-asc") }} type="radio" name="sort" id="sort" />
+                                    <label htmlFor="sort">Prix croissant</label>
+                                </div>
                             </div>
                         </div>
                     </div>
