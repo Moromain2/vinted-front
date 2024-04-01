@@ -1,6 +1,7 @@
 // Modules import
 import { useState, useEffect } from 'react'; // State management
 import axios from 'axios'; // Data fetching
+import { Link } from "react-router-dom"; // Navigation
 
 // CSS import for home page
 import "./home-page.css";
@@ -54,7 +55,7 @@ const HomePage = (filter) => {
                             <div className="container">
                                 <div className="card hero-cta">
                                     <h1>Prêts à faire du tri dans vos placards ?</h1>
-                                    <button className="button button-fill">Commencer à vendre</button>
+                                    <Link to="/publish" className="button button-fill">Commencer à vendre</Link>
                                 </div>
                             </div>
                         </section>

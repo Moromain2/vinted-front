@@ -158,10 +158,16 @@ p {
   color: var(--medium-grey);
 }
 
-.form-container .input-group input {
+.form-container .input-group input,
+.form-container .input-group textarea {
   font-size: 1em;
   padding: .5em 1em;
   margin-bottom: 2em;
+}
+
+.form-container .input-group textarea {
+  font-family: var(--font-main);
+  resize: vertical;
 }
 
 .form-container .checkbox-group {

@@ -10,8 +10,6 @@ import "./navigation.css";
 import VintedLogo from "../../assets/images/vectors/VintedLogo";
 import BurgerIcon from "../../assets/images/vectors/BurgerIcon";
 import CloseIcon from "../../assets/images/vectors/CloseIcon";
-import ArrowDown from "../../assets/images/vectors/ArrowDown";
-import ManifyingGlass from "../../assets/images/vectors/ManifyingGlass";
 
 // Components imports
 import Filter from "../Filter";
@@ -20,7 +18,6 @@ import Filter from "../Filter";
 const Navigation = ({ filter, setFilter }) => {
     // Setting a state to hide or show items on mobile
     const [showMenu, setShowMenu] = useState(false);
-    const [showDropdown, setShowDropdown] = useState(false);
 
     const navigate = useNavigate(); // Setting a navigate variable to the useNavigate function
 
@@ -41,6 +38,7 @@ const Navigation = ({ filter, setFilter }) => {
             <nav className={showMenu === false && "hide-menu-mobile"}>
                 <div className="container">
                     <ul className="navlinks">
+                        <li><Link to="/publish" className="button button-fill">Poster une annonce</Link></li>
                         {Cookies.get("user_token") === undefined ?
                             <>
                                 <li><Link to="/signup" className="button button-fill">S'inscrire</Link></li>
@@ -48,7 +46,6 @@ const Navigation = ({ filter, setFilter }) => {
                             </>
                             :
                             <>
-                                <li>Vous êtes connectés</li>
                                 <li>
                                     <button
                                         onClick={() => {
