@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 // CSS import for component
 import "./filter.css";
@@ -10,6 +11,19 @@ import FilterIcon from "../../assets/images/vectors/FilterIcon";
 const Filter = ({ filter, setFilter }) => {
 
     const [showFilters, setShowFilters] = useState(false);
+
+    // Reseting the show filter state when the page changes
+    const location = useLocation();
+    const [currentLocation, setCurrentLocation] = useState(location.pathname); // setting a state with the current pathname
+    // Each time the component renders 
+    useEffect(() => {
+        // Hiding the menu if the location is diffent from the currentLocation
+        if (location !== currentLocation) {
+            setShowFilters(false);
+        }
+        // Updating the currentLocation state
+        setCurrentLocation(location.pathname);
+    }, [setCurrentLocation, currentLocation, location])
 
     const handleInput = (e, key) => {
         const filterClone = { ...filter };

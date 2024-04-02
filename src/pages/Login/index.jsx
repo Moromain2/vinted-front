@@ -9,10 +9,9 @@ import Cookies from "js-cookie"; // Cookies
 
 const LoginPage = () => {
 
-    // Destructuration of the `from`state from useLocation do determine if the user comes from the /publish page
+    // If the useLocation() function has a state key it gets assigned to the `from` variable
     const location = useLocation();
-    const { from } = location.state;
-    console.log(from)
+    const from = location.state?.from;
 
     // Setting a state for a user and assigning its default value to an empty object with keys matching the login form
     const [user, setUser] = useState({

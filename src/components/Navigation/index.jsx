@@ -1,6 +1,6 @@
 // Modules imports
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom"
+import { useEffect, useState } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom"
 import Cookies from "js-cookie"; // Cookies
 
 // CSS import for Navigation
@@ -19,6 +19,19 @@ const Navigation = ({ filter, setFilter }) => {
     // Setting a state to hide or show items on mobile
     const [showMenu, setShowMenu] = useState(false);
 
+    // Reseting the show menu state when the page changes
+    const location = useLocation();
+    const [currentLocation, setCurrentLocation] = useState(location.pathname); // setting a state with the current pathname
+    // Each time the component renders 
+    useEffect(() => {
+        // Hiding the menu if the location is diffent from the currentLocation
+        if (location !== currentLocation) {
+            setShowMenu(false);
+        }
+        // Updating the currentLocation state
+        setCurrentLocation(location.pathname);
+    }, [setCurrentLocation, currentLocation, location])
+
     const navigate = useNavigate(); // Setting a navigate variable to the useNavigate function
 
     return (
@@ -35,7 +48,7 @@ const Navigation = ({ filter, setFilter }) => {
             </div>
             {/* filter object and set filter function are passed through props from the app component */}
             <Filter filter={filter} setFilter={setFilter} />
-            <nav className={showMenu === false && "hide-menu-mobile"}>
+            <nav className={!showMenu ? "hide-menu-mobile" : ""}>
                 <div className="container">
                     <ul className="navlinks">
                         <li><Link to="/publish" className="button button-fill">Poster une annonce</Link></li>
