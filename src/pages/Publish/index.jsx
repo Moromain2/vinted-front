@@ -1,6 +1,6 @@
 // Modules imports
 import Cookies from "js-cookie"; // Cookies
-import { useNavigate, Navigate } from "react-router-dom"; // Navigation
+import { useNavigate } from "react-router-dom"; // Navigation
 import axios from 'axios'; // Data fetching
 import { useState } from "react"; // State management
 
@@ -69,8 +69,13 @@ const PublishPage = () => {
         }
     }
 
+    if (!Cookies.get("user_token")) {
+        // If the user is not authenticated, the page redirects to the login page with the pathname spêcified as a state
+        navigate("/login", { state: { from: "/publish" } })
+    }
+
     // Page content is only displayed if the user is authenticated
-    return Cookies.get("user_token") ? (
+    return Cookies.get("user_token") && (
         <div className="page-wrapper new-offer-page-wrapper">
             <div className="container">
                 <h1>Poster une annonce</h1>
@@ -118,9 +123,6 @@ const PublishPage = () => {
                 </form>
             </div>
         </div>
-    ) : (
-        // If the user is not authenticated, the page redirects to the login page
-        <Navigate to="/login" />
     )
 }
 

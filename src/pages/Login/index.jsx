@@ -2,12 +2,17 @@
 import "./login.css";
 
 // Modules imports
-import { Link, useNavigate } from "react-router-dom"; // Navigation
+import { Link, useNavigate, useLocation } from "react-router-dom"; // Navigation
 import { useState } from "react"; // State management
 import axios from 'axios'; // Data fetching
 import Cookies from "js-cookie"; // Cookies
 
 const LoginPage = () => {
+
+    // Destructuration of the `from`state from useLocation do determine if the user comes from the /publish page
+    const location = useLocation();
+    const { from } = location.state;
+    console.log(from)
 
     // Setting a state for a user and assigning its default value to an empty object with keys matching the login form
     const [user, setUser] = useState({
@@ -47,7 +52,13 @@ const LoginPage = () => {
             const data = response.data;
             // Setting a user_token cookie to the return value of the API call
             Cookies.set("user_token", data.token, { expires: 14 });
-            navigate("/"); // Redirection to the home page
+            if (from === "/publish") {
+                // If the user was on the /publish page before login-in
+                navigate("/publish") // Redirection to the publish page
+            } else {
+                navigate("/"); // Redirection to the home page
+            }
+
         } catch (error) {
             console.log(error.message);
             if (error.message === "Request failed with status code 400") {
@@ -83,7 +94,7 @@ const LoginPage = () => {
                                 </div>
                                 <input className="button button-fill" type="submit" />
                                 {errorMessage &&
-                                    // {/* // If the error state is set to true */}
+                                    // If the error state is set to true
                                     <div className="form-error">
                                         <h3>Erreur</h3>
                                         <p>{errorMessage}</p>
@@ -92,7 +103,7 @@ const LoginPage = () => {
                             </form>
                             <div className="hint">
                                 <h4>Vous n'avez pas de compte ? </h4>
-                                <Link cla to="/signup">Créez en un ici</Link>
+                                <Link to="/signup">Créez en un ici</Link>
                             </div>
                         </div>
                     </>
