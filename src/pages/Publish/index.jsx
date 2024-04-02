@@ -2,7 +2,7 @@
 import Cookies from "js-cookie"; // Cookies
 import { useNavigate } from "react-router-dom"; // Navigation
 import axios from 'axios'; // Data fetching
-import { useState } from "react"; // State management
+import { useState, useEffect } from "react"; // State management
 
 const PublishPage = () => {
     // Setting a state to collect the offer data
@@ -69,16 +69,19 @@ const PublishPage = () => {
         }
     }
 
-    if (!Cookies.get("user_token")) {
-        // If the user is not authenticated, the page redirects to the login page with the pathname spêcified as a state
-        navigate("/login", { state: { from: "/publish" } })
-    }
+    // If the user is not authenticated, the page redirects to the login page with the pathname spêcified as a state
+    useEffect(() => {
+        if (Cookies.get("user_token") === undefined) {
+            navigate("/login", { state: { from: "/publish" } })
+        }
+    })
 
-    // Page content is only displayed if the user is authenticated
-    return Cookies.get("user_token") && (
+    return (
         <div className="page-wrapper new-offer-page-wrapper">
             <div className="container">
-                <h1>Poster une annonce</h1>
+                <div className="form-container">
+                    <h1>Poster une annonce</h1>
+                </div>
                 <form onSubmit={(e) => {
                     handleSubmit(e);
                 }} className="form-container">
@@ -119,7 +122,7 @@ const PublishPage = () => {
                         <label htmlFor="color">Couleur</label>
                         <input onChange={(e) => { handleInput(e, "color") }} type="text" name="color" id="color" placeholder="Couleur de votre article" />
                     </div>
-                    <input type="submit" value="Poster une annonce" />
+                    <input className="button button-fill" type="submit" value="Poster une annonce" />
                 </form>
             </div>
         </div>
