@@ -3,7 +3,6 @@ import Cookies from "js-cookie"; // Cookies
 import { useNavigate, Navigate } from "react-router-dom"; // Navigation
 import axios from 'axios'; // Data fetching
 import { useState } from "react"; // State management
-import Dropzone from 'react-dropzone' // Drag and drop files
 
 const PublishPage = () => {
     // Setting a state to collect the offer data
@@ -36,10 +35,9 @@ const PublishPage = () => {
         newOffer[key] = input;
         // State of the offer object is updated
         setOffer(newOffer);
-        // console.log(offer);
     }
 
-    // const [redirectUrl, setRedirectUrl] = useState(""); >>> REDIRECT TO OFFER PAGE AFTER SUBMITION
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault(); // Preventing page reload on form submit
@@ -59,13 +57,14 @@ const PublishPage = () => {
                     }
                 }
             )
-            // setRedirectUrl(`/offer/${response.data._id}`); >>> REDIRECT TO OFFER PAGE AFTER SUBMITION
+            if (response.data._id) {
+                // If the offer _id exists, redirection on the matching offer page after submit
+                navigate(`/offer/${response.data._id}`);
+            }
         } catch (error) {
             console.log(error.message);
         }
     }
-
-    // const navigate = useNavigate(); >>> REDIRECT TO OFFER PAGE AFTER SUBMITION
 
     // Page content is only displayed if the user is authenticated
     return Cookies.get("user_token") ? (
@@ -74,7 +73,6 @@ const PublishPage = () => {
                 <h1>Poster une annonce</h1>
                 <form onSubmit={(e) => {
                     handleSubmit(e);
-                    // navigate(redirectUrl); >>> REDIRECT TO OFFER PAGE AFTER SUBMITION
                 }} className="form-container">
                     <div className="input-group">
                         <label htmlFor="picture">Ajouter une image {`(requis)`}</label>
