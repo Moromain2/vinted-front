@@ -1,0 +1,22 @@
+/* CSS for payment page */
+.payment-page-wrapper .container .form-container h1 {
+    color: var(--green);
+}
+
+.payment-page-wrapper .container .form-container h3 {
+    color: var(--medium-grey);
+}
+
+.payment-page-wrapper .container .order-summary {
+    background-color: var(--light-grey);
+    margin-bottom: 2em;
+    padding: 1em;
+    border-radius: .25em;
+    display: flex;
+    gap: 3em;
+}
+
+.payment-page-wrapper .container .order-summary li strong {
+    font-weight: 500;
+    color: var(--medium-grey);
+}

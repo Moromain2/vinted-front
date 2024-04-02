@@ -20,7 +20,7 @@ const PublishPage = () => {
 
     // Keys of the offer object are passed dynamicaly as arguments of the function
     const handleInput = (e, key) => {
-        // Inout variable declaration and value assignement depending on the field type
+        // Input variable declaration value assignement depending on the field type
         let input;
         if (key === "picture") {
             // If it's a file input
@@ -37,19 +37,22 @@ const PublishPage = () => {
         setOffer(newOffer);
     }
 
+    // `navigate` variable is assigned to the useNavigate function
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault(); // Preventing page reload on form submit
-        const offerKeys = Object.keys(offer);
-        const formData = new FormData();
+        const offerKeys = Object.keys(offer); // Array with all the keys of the offer object
+        const formData = new FormData(); // Delcaration of a FormData
+        // Loop on the offer keys array
         for (let i = 0; i < offerKeys.length; i++) {
+            // Dynamic assignement of all the keys & values to the formData
             formData.append(offerKeys[i], offer[offerKeys[i]]);
         }
         try {
             const response = await axios.post(
                 "https://lereacteur-vinted-api.herokuapp.com/offer/publish",
-                formData,
+                formData, // formData is sent to the API
                 {
                     headers: {
                         Authorization: `Bearer ${Cookies.get("user_token")}`,

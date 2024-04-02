@@ -11,6 +11,8 @@ import OfferPage from './pages/Offer';
 import SignUpPage from './pages/SignUp';
 import LoginPage from './pages/Login';
 import PublishPage from './pages/Publish';
+import PaymentPage from './pages/Payment';
+import OrderConfirmedPage from './pages/OrderConfirmed';
 
 // Components imports
 import Navigation from "./components/Navigation";
@@ -35,6 +37,8 @@ function App() {
           <Route path='/signup' element={<SignUpPage />} />
           <Route path='/login' element={<LoginPage />} />
           <Route path='/publish' element={<PublishPage />} />
+          <Route path='/payment' element={<PaymentPage />} />
+          <Route path='/order-confirmed' element={<OrderConfirmedPage />} />
         </Routes>
       </Router>
     </>
